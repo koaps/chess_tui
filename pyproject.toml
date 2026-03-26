@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "chess-tui"
+version = "0.1.1"
+description = "Add your description here"
+readme = "README.md"
+authors = ["Koaps <koaps@users.noreply.github.com>"]
+packages = [{ include = "chess_tui", from = "src" }]
+
+[tool.poetry.dependencies]
+cairosvg = "^2.9.0"
+pillow = "^12.1.1"
+python = ">=3.14,<4.0"
+python-chess = ">=1.999"
+rich = "^14.3.3"
+textual = ">=8.1.1"
+textual-image = "^0.8.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=9.0.2"
+ruff = ">=0.15.7"
+textual-dev = ">=1.8.0"
+
+[tool.poetry.scripts]
+chess-tui = "chess_tui:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+
+[tool.ruff.lint]
+select = ["B", "C90", "E", "F", "I", "W"]
+ignore = []
+
+[build-system]
+requires = ["poetry-core>=2,<3"]
+build-backend = "poetry.core.masonry.api"
